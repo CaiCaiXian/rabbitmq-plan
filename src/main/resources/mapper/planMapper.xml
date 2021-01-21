@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjx.rabbitmq.plan.dao.PlanDao">
+
+    <select id="selectPlanById" resultType="com.cjx.rabbitmq.plan.dto.PlanDTO">
+        select p.*,pt.name as plan_type from qk_plan p ,qk_plantype pt where p.id = #{id} and p.type_id = pt.id
+    </select>
+
+    <select id="selectVersion" resultType="Integer">
+        select p.version from qk_plan p where p.id = #{id}
+    </select>
+
+</mapper>
